@@ -2,7 +2,6 @@ var colors = ["red", "green", "yellow", "blue"];
 var sequence = [];
 var userSequence = [];
 var level = 1,
-  gameOver = false,
   started = false;
 
 
@@ -32,13 +31,11 @@ $(".board-button").click(function() {
 
 
 function next_move() {
-  if (gameOver)
-    $("h1").removeClass("gameOver-title");
 
   userSequence = [];
 
   $("h1").text("Level " + level);
-  $("h2").text("Memorize the sequence and repeat the same moves!");
+  $("h2").text("Memorize and repeat the sequence!");
   var randomNumber = Math.floor(Math.random() * 4);
   var newColor = colors[randomNumber];
   sequence.push(newColor);
@@ -67,7 +64,7 @@ function checkUserSeq(currentUserLevel) {
     }
   } else {
 
-    $("h1").text("GAME OVER").addClass("gameOver-title");
+    $("h1").text("GAME OVER");
     $("h2").text("Press the Start button to play again");
     $("body").addClass("gameOver");
     setTimeout(function() {
@@ -76,7 +73,6 @@ function checkUserSeq(currentUserLevel) {
 
     sequence = [];
     level = 1;
-    gameOver = true;
     started = false;
 
     $(".board").fadeOut(600);
