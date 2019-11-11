@@ -13,7 +13,7 @@ h1 {
 
 h2 {
   font-weight: 300;
-  margin-top: 8px
+  margin: 8px auto;
 }
 
 .board {
@@ -24,11 +24,12 @@ h2 {
 
 .board-button {
   display: inline-block;
-  width: 150px;
-  height: 150px;
-  border-radius: 30px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
   border: 5px solid black;
-  margin: 20px;
+  margin: 15px;
+
 }
 
 .red {
@@ -62,4 +63,16 @@ h2 {
 
 .gameOver-title {
   font-size: 5rem;
+}
+
+
+@media (max-width: 768px) {
+
+  h1{
+    font-size: 6rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
 }
