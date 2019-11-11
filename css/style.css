@@ -1,0 +1,65 @@
+
+body {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  background-color: #ffeecf;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 3rem;
+  margin: 7px auto;
+}
+
+h2 {
+  font-weight: 300;
+  margin-top: 8px
+}
+
+.board {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+.board-button {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  border: 5px solid black;
+  margin: 20px;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: #00EC1F;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.to-press{
+  background-color: rgba(255, 8, 0, 0.5);
+}
+
+.pressed {
+  opacity: 0.3;
+  box-shadow: 0 0  10px 5px rgba(0,0,255,1);
+}
+
+.gameOver {
+  background-color: #DA2A24;
+}
+
+.gameOver-title {
+  font-size: 5rem;
+}
