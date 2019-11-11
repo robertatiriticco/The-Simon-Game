@@ -1,19 +1,28 @@
 var colors = ["red", "green", "yellow", "blue"];
 var sequence = [];
 var userSequence = [];
-var level = 1, gameOver = false, started = false;
+var level = 1,
+  gameOver = false,
+  started = false;
 
 
+$("#start").click(function() {
+  $("#start").fadeOut(600);
+  setTimeout(function(){
 
+    $(".board").fadeIn(600);
+    if (!started)
+      next_move();
+  },600);
 
-$(document).keypress(function() {
-  if (!started)
-    next_move();
 });
 
 
+
+
+
 $(".board-button").click(function() {
-  if(started){
+  if (started) {
     var btnPressed = $(this).attr("id");
     userSequence.push(btnPressed);
     animatePress(btnPressed);
@@ -23,7 +32,7 @@ $(".board-button").click(function() {
 
 
 function next_move() {
-  if(gameOver)
+  if (gameOver)
     $("h1").removeClass("gameOver-title");
 
   userSequence = [];
@@ -34,7 +43,9 @@ function next_move() {
   var newColor = colors[randomNumber];
   sequence.push(newColor);
 
-  $('#' + newColor).fadeOut(400).fadeIn(400);
+  setTimeout(function(){
+    $('#' + newColor).fadeOut(400).fadeIn(400);
+  }, 300);
   level++;
   started = true;
 }
@@ -51,13 +62,13 @@ function checkUserSeq(currentUserLevel) {
   if (userSequence[currentUserLevel] === sequence[currentUserLevel]) {
     if (userSequence.length === sequence.length) {
       setTimeout(
-        next_move, 1000
+        next_move, 300
       );
     }
   } else {
 
     $("h1").text("GAME OVER").addClass("gameOver-title");
-    $("h2").text("Press any key to restart");
+    $("h2").text("Press the Start button to play again");
     $("body").addClass("gameOver");
     setTimeout(function() {
       $("body").removeClass("gameOver")
@@ -67,6 +78,11 @@ function checkUserSeq(currentUserLevel) {
     level = 1;
     gameOver = true;
     started = false;
+
+    $(".board").fadeOut(600);
+    setTimeout(function(){
+      $("#start").fadeIn(600);
+    },600);
   }
 
 }

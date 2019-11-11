@@ -16,10 +16,32 @@ h2 {
   margin: 8px auto;
 }
 
+.start-btn{
+  margin: 5% auto 10%;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 .2em gray;
+  cursor: pointer;
+  outline: none;
+  font-size: 2rem;
+}
+
+
 .board {
   display: block;
-  width: 50%;
   margin: auto;
+}
+
+.hide {
+  display: none;
 }
 
 .board-button {
@@ -29,7 +51,7 @@ h2 {
   border-radius: 50%;
   border: 5px solid black;
   margin: 15px;
-
+  cursor: pointer;
 }
 
 .red {
@@ -66,13 +88,27 @@ h2 {
 }
 
 
-@media (max-width: 768px) {
+@media only screen and (max-device-width: 768px) {
 
   h1{
-    font-size: 6rem;
+    font-size: 7rem;
   }
 
   h2 {
+    font-size: 2.5rem;
+  }
+
+  .start-btn {
     font-size: 3rem;
+  }
+
+  .start-board,
+  .board {
+    margin-top: 30%;
+  }
+
+  .board-button {
+    width: 200px;
+    height: 200px;
   }
 }
