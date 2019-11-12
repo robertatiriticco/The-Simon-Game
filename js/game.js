@@ -1,12 +1,12 @@
 var colors = ["red", "green", "yellow", "blue"];
 var sequence = [];
 var userSequence = [];
-var level = 1,
+var level = 0,
   started = false;
 
 
 $("#start").click(function() {
-  $("#start").fadeOut(600);
+  $(".start-board").fadeOut(600);
   setTimeout(function(){
 
     $(".board").fadeIn(600);
@@ -33,6 +33,7 @@ $(".board-button").click(function() {
 function next_move() {
 
   userSequence = [];
+  level++;
 
   $("h1").text("Level " + level);
   $("h2").text("Memorize and repeat the sequence!");
@@ -43,7 +44,6 @@ function next_move() {
   setTimeout(function(){
     $('#' + newColor).fadeOut(400).fadeIn(400);
   }, 300);
-  level++;
   started = true;
 }
 
@@ -63,22 +63,26 @@ function checkUserSeq(currentUserLevel) {
       );
     }
   } else {
+    console.log("else: " + level);
 
     $("h1").text("GAME OVER");
-    $("h2").text("Press the Start button to play again");
+    $("h2").text("Press the button to play again");
     $("body").addClass("gameOver");
     setTimeout(function() {
       $("body").removeClass("gameOver")
     }, 200);
 
-    sequence = [];
-    level = 1;
-    started = false;
-
     $(".board").fadeOut(600);
     setTimeout(function(){
-      $("#start").fadeIn(600);
+      $(".info-text").text("Your score: " + (level-1));
+      $("#start").text("RESTART");
+      $(".start-board").fadeIn(600);
     },600);
-  }
 
+    setTimeout(function(){
+        sequence = [];
+        level = 0;
+        started = false;
+      }, 650);
+  }
 }
