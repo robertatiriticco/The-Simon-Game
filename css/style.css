@@ -15,6 +15,10 @@ h2 {
   margin: 8px auto;
 }
 
+strong {
+  font-size: 1.1rem;
+}
+
 input,
 textarea,
 button,
@@ -96,7 +100,8 @@ div {
     font-size: 6rem;
   }
 
-  h2 {
+  h2,
+  strong {
     font-size: 2.3rem;
   }
 
